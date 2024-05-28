@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+<th:block layout:fragment="content">
+    <section class="s1">
+        <div class="center-box">
+            <h2>영화 상세 정보</h2>
+            <div class="content detail-movie-info">
+                <img th:src="${movieData.image}" class="poster" width="300" height="450">
+                <div class="detail-movie-txt">
+                    <p class="releaseDate">개봉일 : [[${movieData.releaseDate}]]</p>
+                    <h2 class="movie-name" th:text="${movieData.movieNm}"></h2>
+                    <p class="desc">시놉시스 : [[${movieData.overview}]]</p>
+                    <p class="time">상영시간 : [[${movieData.runtime}]]</p>
+                    <div class="movie-btns">
+                        <button id="reservationBtn" class="reservationBtn" th:id="'reservation-'+${movieData.id}" th:data-movie-id="${movieData.id}" th:data-movie-rank="${movieData.rank}" th:data-movie-name="${movieData.movieNm}" th:data-movie-image="${movieData.image}" th:data-movie-overview="${movieData.overview}" th:data-movie-runtime="${movieData.runtime}" th:data-release-date="${movieData.releaseDate}">예매하기
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</th:block>
+</html>
